@@ -159,7 +159,7 @@
 
     // ---- Tunables --------------------------------------------------------
     const SMOOTHING = 0.12;        // low-pass factor applied to raw cursor each frame
-    const HYSTERESIS = 0.12;       // distance bonus (in normalized units) given to the current work
+    const CLUSTER_EPSILON = 0.06;  // works within this of the nearest distance are treated as a tie
     const DEAD_ZONE = 0.08;        // radius from center within which a noGaze work is preferred
     const SWITCH_COOLDOWN = 400;   // minimum ms between switches, even if a closer match appears
 
@@ -312,20 +312,28 @@
         if (noGaze) return noGaze;
       }
 
-      let best = null;
       let bestDist = Infinity;
-
       for (const w of works) {
         if (w.noGaze) continue; // only reachable via the dead zone
-        let d = Math.hypot(w.gaze.x - x, w.gaze.y - y);
-        if (w === current) d = Math.max(0, d - HYSTERESIS);
-        if (d < bestDist) {
-          bestDist = d;
-          best = w;
-        }
+        const d = Math.hypot(w.gaze.x - x, w.gaze.y - y);
+        if (d < bestDist) bestDist = d;
       }
 
-      return best;
+      // Several works can plausibly claim the same cursor position (a
+      // gaze-space cluster). Treat everything within CLUSTER_EPSILON of the
+      // best distance as a tie. If the currently-displayed work is still in
+      // that tie set, keep it — this is what stops a cluster from
+      // re-rolling every animation frame. Only when the cursor genuinely
+      // leaves the whole cluster do we roll for a new pick.
+      const tied = [];
+      for (const w of works) {
+        if (w.noGaze) continue;
+        const d = Math.hypot(w.gaze.x - x, w.gaze.y - y);
+        if (d <= bestDist + CLUSTER_EPSILON) tied.push(w);
+      }
+
+      if (current && tied.includes(current)) return current;
+      return tied[Math.floor(Math.random() * tied.length)];
     }
 
     // ---- Rendering --------------------------------------------------

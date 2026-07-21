@@ -1,61 +1,818 @@
 [
-  { "id": 437397, "src": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/437397/1843832/main-image",
-    "title": "Self-Portrait", "artist": "Rembrandt (Rembrandt van Rijn)", "date": "1660",
+  {
+    "id": 437397,
+    "src": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/437397/1843832/main-image",
+    "title": "Self-Portrait",
+    "artist": "Rembrandt (Rembrandt van Rijn)",
+    "date": "1660",
     "objectURL": "https://www.metmuseum.org/art/collection/search/437397",
-    "note": "Rembrandt looks the viewer dead in the eye.", "gaze": { "x": -0.03, "y": -0.25 } },
-
-  { "id": 437903, "src": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/437903/1580188/main-image",
-    "title": "Marie Joséphine Charlotte du Val d’Ognes", "artist": "Marie Denise Villers", "date": "1801",
+    "note": "Rembrandt looks the viewer dead in the eye.",
+    "gaze": {
+      "x": -0.03,
+      "y": -0.25
+    }
+  },
+  {
+    "id": 437903,
+    "src": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/437903/1580188/main-image",
+    "title": "Marie Joséphine Charlotte du Val d’Ognes",
+    "artist": "Marie Denise Villers",
+    "date": "1801",
     "objectURL": "https://www.metmuseum.org/art/collection/search/437903",
-    "note": "“she’s looking right at the audience.” — Met curator", "gaze": { "x": 0.16, "y": -0.47 } },
-
-  { "id": 437869, "src": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/437869/1763004/main-image",
-    "title": "Juan de Pareja", "artist": "Velázquez", "date": "ca. 1650",
+    "note": "“she’s looking right at the audience.” — Met curator",
+    "gaze": {
+      "x": 0.16,
+      "y": -0.47
+    }
+  },
+  {
+    "id": 437869,
+    "src": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/437869/1763004/main-image",
+    "title": "Juan de Pareja",
+    "artist": "Velázquez",
+    "date": "ca. 1650",
     "objectURL": "https://www.metmuseum.org/art/collection/search/437869",
-    "note": "painted in Rome while Pareja was enslaved in Velázquez’s household.", "gaze": { "x": -0.31, "y": -0.34 } },
-
-  { "id": 435664, "src": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/435664/795061/main-image",
-    "title": "Portrait of a Young Man", "artist": "Biagio d’Antonio", "date": "ca. 1470",
+    "note": "painted in Rome while Pareja was enslaved in Velázquez’s household.",
+    "gaze": {
+      "x": -0.31,
+      "y": -0.34
+    }
+  },
+  {
+    "id": 435664,
+    "src": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/435664/795061/main-image",
+    "title": "Portrait of a Young Man",
+    "artist": "Biagio d’Antonio",
+    "date": "ca. 1470",
     "objectURL": "https://www.metmuseum.org/art/collection/search/435664",
-    "note": "a fifteen-year-old stares confidently at the spectator.", "gaze": { "x": 0.3, "y": -0.4 } },
-
-  { "id": 437875, "src": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/437875/803230/main-image",
-    "title": "Portrait of a Man", "artist": "possibly Velázquez", "date": "ca. 1650",
+    "note": "a fifteen-year-old stares confidently at the spectator.",
+    "gaze": {
+      "x": 0.3,
+      "y": -0.4
+    }
+  },
+  {
+    "id": 437875,
+    "src": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/437875/803230/main-image",
+    "title": "Portrait of a Man",
+    "artist": "possibly Velázquez",
+    "date": "ca. 1650",
     "objectURL": "https://www.metmuseum.org/art/collection/search/437875",
-    "note": "looks to his right while facing the viewer.", "gaze": { "x": 0.82, "y": -0.31 } },
-
-  { "id": 435623, "src": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/435623/796413/main-image",
-    "title": "Portrait of a Young Man", "artist": "Pompeo Batoni", "date": "ca. 1760–65",
+    "note": "looks to his right while facing the viewer.",
+    "gaze": {
+      "x": 0.82,
+      "y": -0.31
+    }
+  },
+  {
+    "id": 435623,
+    "src": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/435623/796413/main-image",
+    "title": "Portrait of a Young Man",
+    "artist": "Pompeo Batoni",
+    "date": "ca. 1760–65",
     "objectURL": "https://www.metmuseum.org/art/collection/search/435623",
-    "note": "a Grand Tourist’s aloof, upward gaze.", "gaze": { "x": 0.59, "y": -0.28 } },
-
-  { "id": 437851, "src": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/437851/801526/main-image",
-    "title": "Portrait of a Young Man", "artist": "Cosmè Tura", "date": "1470s",
+    "note": "a Grand Tourist’s aloof, upward gaze.",
+    "gaze": {
+      "x": 0.59,
+      "y": -0.28
+    }
+  },
+  {
+    "id": 437851,
+    "src": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/437851/801526/main-image",
+    "title": "Portrait of a Young Man",
+    "artist": "Cosmè Tura",
+    "date": "1470s",
     "objectURL": "https://www.metmuseum.org/art/collection/search/437851",
-    "note": "profile portraiture ruled Italy into the 1400s.", "gaze": { "x": -0.43, "y": -0.29 } },
-
-  { "id": 438818, "src": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/438818/795916/main-image",
-    "title": "Joseph-Antoine Moltedo", "artist": "Jean Auguste Dominique Ingres", "date": "ca. 1810",
+    "note": "profile portraiture ruled Italy into the 1400s.",
+    "gaze": {
+      "x": -0.43,
+      "y": -0.29
+    }
+  },
+  {
+    "id": 438818,
+    "src": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/438818/795916/main-image",
+    "title": "Joseph-Antoine Moltedo",
+    "artist": "Jean Auguste Dominique Ingres",
+    "date": "ca. 1810",
     "objectURL": "https://www.metmuseum.org/art/collection/search/438818",
-    "note": "painted in Napoleonic Rome.", "gaze": { "x": -0.02, "y": -0.38 } },
-
-  { "id": 435802, "src": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/435802/1763012/main-image",
-    "title": "Portrait of a Young Man", "artist": "Bronzino", "date": "1530s",
+    "note": "painted in Napoleonic Rome.",
+    "gaze": {
+      "x": -0.02,
+      "y": -0.38
+    }
+  },
+  {
+    "id": 435802,
+    "src": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/435802/1763012/main-image",
+    "title": "Portrait of a Young Man",
+    "artist": "Bronzino",
+    "date": "1530s",
     "objectURL": "https://www.metmuseum.org/art/collection/search/435802",
-    "note": "a Florentine poet, holding a book of verse.", "gaze": { "x": 0.33, "y": -0.63 } },
-
-  { "id": 437391, "src": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/437391/1869655/main-image",
-    "title": "Portrait of a Young Woman with a Fan", "artist": "Rembrandt (Rembrandt van Rijn)", "date": "1633",
+    "note": "a Florentine poet, holding a book of verse.",
+    "gaze": {
+      "x": 0.33,
+      "y": -0.63
+    }
+  },
+  {
+    "id": 437391,
+    "src": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/437391/1869655/main-image",
+    "title": "Portrait of a Young Woman with a Fan",
+    "artist": "Rembrandt (Rembrandt van Rijn)",
+    "date": "1633",
     "objectURL": "https://www.metmuseum.org/art/collection/search/437391",
-    "note": "pendant to a portrait of her husband.", "gaze": { "x": 0, "y": -0.54 } },
-
-  { "id": 437394, "src": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/437394/2211141/main-image",
-    "title": "Aristotle with a Bust of Homer", "artist": "Rembrandt (Rembrandt van Rijn)", "date": "1653",
+    "note": "pendant to a portrait of her husband.",
+    "gaze": {
+      "x": 0,
+      "y": -0.54
+    }
+  },
+  {
+    "id": 437394,
+    "src": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/437394/2211141/main-image",
+    "title": "Aristotle with a Bust of Homer",
+    "artist": "Rembrandt (Rembrandt van Rijn)",
+    "date": "1653",
     "objectURL": "https://www.metmuseum.org/art/collection/search/437394",
-    "note": "Aristotle looks down, weighing his own legacy.", "gaze": { "x": -0.54, "y": -0.04 } },
-
-  { "id": 435882, "src": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/435882/796423/main-image",
-    "title": "Still Life with Apples and a Pot of Primroses", "artist": "Paul Cézanne", "date": "ca. 1890",
+    "note": "Aristotle looks down, weighing his own legacy.",
+    "gaze": {
+      "x": -0.54,
+      "y": -0.04
+    }
+  },
+  {
+    "id": 435882,
+    "src": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/435882/796423/main-image",
+    "title": "Still Life with Apples and a Pot of Primroses",
+    "artist": "Paul Cézanne",
+    "date": "ca. 1890",
     "objectURL": "https://www.metmuseum.org/art/collection/search/435882",
-    "note": "Cézanne’s apples don’t look back.", "noGaze": true }
+    "note": "Cézanne’s apples don’t look back.",
+    "noGaze": true
+  },
+  {
+    "id": 663,
+    "src": "https://www.artic.edu/iiif/2/91fcc71a-50eb-f418-85f5-d11fc81e8d83/full/843,/0/default.jpg",
+    "title": "Alice",
+    "artist": "William Merritt Chase (American, 1849–1916)",
+    "date": "1892",
+    "objectURL": "https://www.artic.edu/artworks/663",
+    "note": "",
+    "gaze": {
+      "x": -0.07,
+      "y": -0.33
+    }
+  },
+  {
+    "id": 86441,
+    "src": "https://www.artic.edu/iiif/2/1bb08195-44b0-030c-c610-9fb6bb45e9b0/full/843,/0/default.jpg",
+    "title": "Portrait of a Man",
+    "artist": "Flemish",
+    "date": "c. 1530",
+    "objectURL": "https://www.artic.edu/artworks/86441",
+    "note": "",
+    "gaze": {
+      "x": 0.91,
+      "y": -0.18
+    }
+  },
+  {
+    "id": 87479,
+    "src": "https://www.artic.edu/iiif/2/47fd1564-93f5-f30b-7786-013421133b4a/full/843,/0/default.jpg",
+    "title": "The Assumption of the Virgin",
+    "artist": "El Greco (Doménikos Theotokópoulos; Greek, active in Spain, 1541–1614)",
+    "date": "1577–79",
+    "objectURL": "https://www.artic.edu/artworks/87479",
+    "note": "",
+    "gaze": {
+      "x": -0.2,
+      "y": -0.81
+    }
+  },
+  {
+    "id": 111609,
+    "src": "https://www.artic.edu/iiif/2/caf6a947-6359-1b5e-69e5-fedd26cf6360/full/843,/0/default.jpg",
+    "title": "Emperor Heraclius Denied Entry into Jerusalem",
+    "artist": "Netherlandish",
+    "date": "c. 1470",
+    "objectURL": "https://www.artic.edu/artworks/111609",
+    "note": "",
+    "gaze": {
+      "x": 0.28,
+      "y": -0.39
+    }
+  },
+  {
+    "id": 16497,
+    "src": "https://www.artic.edu/iiif/2/40bc6b72-8acf-8e9f-cf6d-c33050250768/full/843,/0/default.jpg",
+    "title": "The Flight into Egypt",
+    "artist": "Abraham van Diepenbeeck (Flemish, 1596-1675)",
+    "date": "c. 1650",
+    "objectURL": "https://www.artic.edu/artworks/16497",
+    "note": "",
+    "gaze": {
+      "x": -0.52,
+      "y": 0.12
+    }
+  },
+  {
+    "id": 35262,
+    "src": "https://www.artic.edu/iiif/2/3b097a0b-d945-9122-f50d-f567ff8684e5/full/843,/0/default.jpg",
+    "title": "The Earl of Coventry's Horse",
+    "artist": "Benjamin Marshall (English, 1767–1835)",
+    "date": "1805",
+    "objectURL": "https://www.artic.edu/artworks/35262",
+    "note": "",
+    "gaze": {
+      "x": 0.8,
+      "y": -0.03
+    }
+  },
+  {
+    "id": 61128,
+    "src": "https://www.artic.edu/iiif/2/defb4004-b500-218d-3d9b-9a02423f097d/full/843,/0/default.jpg",
+    "title": "At the Moulin Rouge",
+    "artist": "Henri de Toulouse-Lautrec (French, 1864–1901)",
+    "date": "1892–95",
+    "objectURL": "https://www.artic.edu/artworks/61128",
+    "note": "",
+    "gaze": {
+      "x": 0.82,
+      "y": 0.21
+    }
+  },
+  {
+    "id": 20526,
+    "src": "https://www.artic.edu/iiif/2/a1e30e2f-0f7f-2ab8-2489-7a8b2402120d/full/843,/0/default.jpg",
+    "title": "Portrait of a Lady, Possibly of the Stanley Family",
+    "artist": "Artist unknown (British, active 18th century)",
+    "date": "c. 1780",
+    "objectURL": "https://www.artic.edu/artworks/20526",
+    "note": "",
+    "gaze": {
+      "x": -0.22,
+      "y": -0.2
+    }
+  },
+  {
+    "id": 4749,
+    "src": "https://www.artic.edu/iiif/2/074c1b1b-fe92-01ce-9e62-cc99369142dd/full/843,/0/default.jpg",
+    "title": "Mrs. George Swinton (Elizabeth Ebsworth)",
+    "artist": "John Singer Sargent (American, 1856–1925)",
+    "date": "1897",
+    "objectURL": "https://www.artic.edu/artworks/4749",
+    "note": "",
+    "gaze": {
+      "x": 0.04,
+      "y": -0.4
+    }
+  },
+  {
+    "id": 21679,
+    "src": "https://www.artic.edu/iiif/2/6b2e856f-01c4-1f23-4ded-79c2398c2c6b/full/843,/0/default.jpg",
+    "title": "Portrait of a Lady",
+    "artist": "Artist unknown (French or Swiss, active 18th century)",
+    "date": "1725–50",
+    "objectURL": "https://www.artic.edu/artworks/21679",
+    "note": "",
+    "gaze": {
+      "x": -0.05,
+      "y": -0.3
+    }
+  },
+  {
+    "id": 87531,
+    "src": "https://www.artic.edu/iiif/2/38972058-6e4d-50a0-ae60-863f276262d0/full/843,/0/default.jpg",
+    "title": "A Lady",
+    "artist": "Johann Friedrich August Tischbein (German, 1750–1812)",
+    "date": "c. 1770",
+    "objectURL": "https://www.artic.edu/artworks/87531",
+    "note": "",
+    "gaze": {
+      "x": -0.1,
+      "y": -0.1
+    }
+  },
+  {
+    "id": 160030,
+    "src": "https://www.artic.edu/iiif/2/107dd824-9ae2-b091-9787-5901d5e300da/full/843,/0/default.jpg",
+    "title": "The Ecstasy of Saint Francis",
+    "artist": "Giovanni Baglione (Italian, 1566–1643)",
+    "date": "1601",
+    "objectURL": "https://www.artic.edu/artworks/160030",
+    "note": "",
+    "gaze": {
+      "x": 0.2,
+      "y": -0.16
+    }
+  },
+  {
+    "id": 25832,
+    "src": "https://www.artic.edu/iiif/2/41728a11-a073-6efa-387c-a40384477ad2/full/843,/0/default.jpg",
+    "title": "Jean Renoir Sewing",
+    "artist": "Pierre-Auguste Renoir (French, 1841–1919)",
+    "date": "1899–1900",
+    "objectURL": "https://www.artic.edu/artworks/25832",
+    "note": "",
+    "gaze": {
+      "x": -0.08,
+      "y": 0.29
+    }
+  },
+  {
+    "id": 160031,
+    "src": "https://www.artic.edu/iiif/2/5b4ab4f3-0d51-584d-afd3-833e42392c81/full/843,/0/default.jpg",
+    "title": "The Golden Age",
+    "artist": "Edward John Poynter (English, 1836–1919)",
+    "date": "1875",
+    "objectURL": "https://www.artic.edu/artworks/160031",
+    "note": "",
+    "gaze": {
+      "x": -0.14,
+      "y": -0.05
+    }
+  },
+  {
+    "id": 87760,
+    "src": "https://www.artic.edu/iiif/2/c210a649-8de9-866e-2a5f-0a506a02b19b/full/843,/0/default.jpg",
+    "title": "Portrait of Magdalena of Saxony, Wife of Elector Joachim II of Brandenburg",
+    "artist": "Lucas Cranach the Elder (German, 1472–1553)",
+    "date": "c. 1529",
+    "objectURL": "https://www.artic.edu/artworks/87760",
+    "note": "",
+    "gaze": {
+      "x": -0.14,
+      "y": -0.15
+    }
+  },
+  {
+    "id": 81512,
+    "src": "https://www.artic.edu/iiif/2/1c2d32a7-790c-501a-e124-00f28cf5052d/full/843,/0/default.jpg",
+    "title": "Interrupted Reading",
+    "artist": "Jean-Baptiste-Camille Corot (French, 1796–1875)",
+    "date": "c. 1870",
+    "objectURL": "https://www.artic.edu/artworks/81512",
+    "note": "",
+    "gaze": {
+      "x": -0.09,
+      "y": -0.21
+    }
+  },
+  {
+    "id": 16309,
+    "src": "https://www.artic.edu/iiif/2/107b6ab1-0554-535c-6f55-788e4fd90f37/full/843,/0/default.jpg",
+    "title": "Panels from the High Altar of the Charterhouse of Saint-Honoré, Thuison-les-Abbeville: Saint John the Baptist",
+    "artist": "French; Picardy",
+    "date": "c. 1495",
+    "objectURL": "https://www.artic.edu/artworks/16309",
+    "note": "",
+    "gaze": {
+      "x": 0.01,
+      "y": -0.27
+    }
+  },
+  {
+    "id": 183006,
+    "src": "https://www.artic.edu/iiif/2/5b05140d-7b91-ef9c-68fc-9ee13db64b21/full/843,/0/default.jpg",
+    "title": "Fragment from Christ Carrying the Cross: Mourning Virgin",
+    "artist": "Jean Hey (Master of Moulins; Netherlandish, active in France, c. 1480-c.1504)",
+    "date": "c. 1500",
+    "objectURL": "https://www.artic.edu/artworks/183006",
+    "note": "",
+    "gaze": {
+      "x": -0.6,
+      "y": 0.49
+    }
+  },
+  {
+    "id": 222002,
+    "src": "https://www.artic.edu/iiif/2/a7638f95-22e3-5fff-8605-49fd6d8aac79/full/843,/0/default.jpg",
+    "title": "A Woman at the Élysée Montmartre (Femme à l’Élysée Montmartre)",
+    "artist": "Louis Anquetin (French, 1861–1932)",
+    "date": "1888",
+    "objectURL": "https://www.artic.edu/artworks/222002",
+    "note": "",
+    "gaze": {
+      "x": -0.77,
+      "y": -0.29
+    }
+  },
+  {
+    "id": 16648,
+    "src": "https://www.artic.edu/iiif/2/38f866cb-9000-de5a-e655-d3fb4d8dc056/full/843,/0/default.jpg",
+    "title": "Woman in Front of a Still Life by Cezanne",
+    "artist": "Paul Gauguin (French, 1848–1903)",
+    "date": "1890",
+    "objectURL": "https://www.artic.edu/artworks/16648",
+    "note": "",
+    "gaze": {
+      "x": 0.7,
+      "y": 0.1
+    }
+  },
+  {
+    "id": 81519,
+    "src": "https://www.artic.edu/iiif/2/681c9b51-6682-3f8c-dac8-ad250ed82240/full/843,/0/default.jpg",
+    "title": "Young Woman",
+    "artist": "Jean-François Millet (French, 1814–1875)",
+    "date": "1844–45",
+    "objectURL": "https://www.artic.edu/artworks/81519",
+    "note": "",
+    "gaze": {
+      "x": -0.78,
+      "y": 0.5
+    }
+  },
+  {
+    "id": 79777,
+    "src": "https://www.artic.edu/iiif/2/0ce87c39-eb29-c888-95a8-e3394ed13c70/full/843,/0/default.jpg",
+    "title": "Portrait of a Donor (recto); Saint Anthony of Padua (verso)",
+    "artist": "Hans Memling (Netherlandish, c. 1430–1494)",
+    "date": "c. 1485",
+    "objectURL": "https://www.artic.edu/artworks/79777",
+    "note": "",
+    "gaze": {
+      "x": -0.82,
+      "y": -0.17
+    }
+  },
+  {
+    "id": 16398,
+    "src": "https://www.artic.edu/iiif/2/c6c6a21a-b985-35d9-b0ef-a2b798ad9fba/full/843,/0/default.jpg",
+    "title": "The Music Lesson",
+    "artist": "Jacob Ochtervelt (Dutch, 1634-1682)",
+    "date": "1671",
+    "objectURL": "https://www.artic.edu/artworks/16398",
+    "note": "",
+    "gaze": {
+      "x": -0.23,
+      "y": 0.23
+    }
+  },
+  {
+    "id": 885,
+    "src": "https://www.artic.edu/iiif/2/9c1e2826-e79b-4b4d-73f9-2ba8c8b00180/full/843,/0/default.jpg",
+    "title": "A Mounted Officer",
+    "artist": "Jean Baptiste Edouard Detaille (French, 1848–1912)",
+    "date": "1877",
+    "objectURL": "https://www.artic.edu/artworks/885",
+    "note": "",
+    "gaze": {
+      "x": 0.51,
+      "y": -0.29
+    }
+  },
+  {
+    "id": 80499,
+    "src": "https://www.artic.edu/iiif/2/ed1b3063-8ce3-d4bc-50cb-b96f13f015e2/full/843,/0/default.jpg",
+    "title": "Dorothea and Francesca",
+    "artist": "Cecilia Beaux (American, 1855–1942)",
+    "date": "1898",
+    "objectURL": "https://www.artic.edu/artworks/80499",
+    "note": "",
+    "gaze": {
+      "x": 0.28,
+      "y": 0.38
+    }
+  },
+  {
+    "id": 111174,
+    "src": "https://www.artic.edu/iiif/2/93d95655-0b4e-b5b4-36b5-5fe8f84d5549/full/843,/0/default.jpg",
+    "title": "Nubian Woman",
+    "artist": "Jules-Robert Auguste (French, 1789-1850)",
+    "date": "c. 1830",
+    "objectURL": "https://www.artic.edu/artworks/111174",
+    "note": "",
+    "gaze": {
+      "x": -0.54,
+      "y": -0.46
+    }
+  },
+  {
+    "id": 150054,
+    "src": "https://www.artic.edu/iiif/2/83802ee1-1682-6de0-7276-37c4ab3fa879/full/843,/0/default.jpg",
+    "title": "Elizabeth Grant Bankson Beatty (Mrs. James Beatty) and Her Daughter Susan",
+    "artist": "Joshua Johnson (American, c. 1763–after 1825)",
+    "date": "c. 1805",
+    "objectURL": "https://www.artic.edu/artworks/150054",
+    "note": "",
+    "gaze": {
+      "x": -0.18,
+      "y": -0.35
+    }
+  },
+  {
+    "id": 16295,
+    "src": "https://www.artic.edu/iiif/2/72083f93-6fe2-bfa8-b9a0-82e50c123015/full/843,/0/default.jpg",
+    "title": "Virgin and Child",
+    "artist": "Hans Memling (Netherlandish, c. 1430–1494)",
+    "date": "c. 1485",
+    "objectURL": "https://www.artic.edu/artworks/16295",
+    "note": "",
+    "gaze": {
+      "x": 0.2,
+      "y": 0.15
+    }
+  },
+  {
+    "id": 20199,
+    "src": "https://www.artic.edu/iiif/2/1db67905-d421-95bf-1e91-4b60dd776886/full/843,/0/default.jpg",
+    "title": "Final Study for \"Bathers at Asnières\"",
+    "artist": "Georges Seurat (French, 1859-1891)",
+    "date": "1883",
+    "objectURL": "https://www.artic.edu/artworks/20199",
+    "note": "",
+    "gaze": {
+      "x": 0.43,
+      "y": -0.03
+    }
+  },
+  {
+    "id": 111639,
+    "src": "https://www.artic.edu/iiif/2/4444c9bb-d6c2-0820-ec61-d04a4ae70793/full/843,/0/default.jpg",
+    "title": "Portrait of a Lady",
+    "artist": "Michele Tosini (Michele di Ridolfo; Italian, 1503–1577)",
+    "date": "c. 1555",
+    "objectURL": "https://www.artic.edu/artworks/111639",
+    "note": "",
+    "gaze": {
+      "x": -0.29,
+      "y": 0.26
+    }
+  },
+  {
+    "id": 59872,
+    "src": "https://www.artic.edu/iiif/2/573f3d19-f5aa-df73-8515-d49d00e6a87a/full/843,/0/default.jpg",
+    "title": "Head of a Girl",
+    "artist": "Attributed to Anthony van Dyck (Flemish, 1599–1641)",
+    "date": "c. 1618–c. 1620",
+    "objectURL": "https://www.artic.edu/artworks/59872",
+    "note": "",
+    "gaze": {
+      "x": 0.86,
+      "y": -0.49
+    }
+  },
+  {
+    "id": 84076,
+    "src": "https://www.artic.edu/iiif/2/a867af78-9a29-c75b-33ab-2f21a2d92b3f/full/843,/0/default.jpg",
+    "title": "Café Singer",
+    "artist": "Edgar Degas (French, 1834–1917)",
+    "date": "1879",
+    "objectURL": "https://www.artic.edu/artworks/84076",
+    "note": "",
+    "gaze": {
+      "x": -0.25,
+      "y": -0.6
+    }
+  },
+  {
+    "id": 59974,
+    "src": "https://www.artic.edu/iiif/2/a1775398-4fc3-0e36-d0dd-dd0587ef4918/full/843,/0/default.jpg",
+    "title": "Saint Jerome in the Wilderness",
+    "artist": "Workshop of Veronese (Paolo Caliari; Italian, 1528–1588)",
+    "date": "1585–90",
+    "objectURL": "https://www.artic.edu/artworks/59974",
+    "note": "",
+    "gaze": {
+      "x": 0.72,
+      "y": -0.24
+    }
+  },
+  {
+    "id": 152019,
+    "src": "https://www.artic.edu/iiif/2/63a98f96-93d4-a6a7-4309-c24818135b9f/full/843,/0/default.jpg",
+    "title": "Saint John the Baptist in the Wilderness",
+    "artist": "Denys Calvaert (Flemish, c. 1540–1619)",
+    "date": "c. 1610",
+    "objectURL": "https://www.artic.edu/artworks/152019",
+    "note": "",
+    "gaze": {
+      "x": -0.53,
+      "y": -0.54
+    }
+  },
+  {
+    "id": 100343,
+    "src": "https://www.artic.edu/iiif/2/738fc402-53e4-83ad-f84d-556798754a51/full/843,/0/default.jpg",
+    "title": "Sacrifice of Isaac",
+    "artist": "School of Johann Liss, the younger (German, c. 1597-1631)",
+    "date": "1600–50",
+    "objectURL": "https://www.artic.edu/artworks/100343",
+    "note": "",
+    "gaze": {
+      "x": -0.93,
+      "y": -0.38
+    }
+  },
+  {
+    "id": 14664,
+    "src": "https://www.artic.edu/iiif/2/156aaed6-fe3c-a13c-f39e-55f381205929/full/843,/0/default.jpg",
+    "title": "Moulin de la Galette",
+    "artist": "Henri de Toulouse-Lautrec (French, 1864–1901)",
+    "date": "1889",
+    "objectURL": "https://www.artic.edu/artworks/14664",
+    "note": "",
+    "gaze": {
+      "x": 0.93,
+      "y": -0.05
+    }
+  },
+  {
+    "id": 86780,
+    "src": "https://www.artic.edu/iiif/2/49f45b42-b565-199f-6ef5-f09dea142205/full/843,/0/default.jpg",
+    "title": "Mother and Child",
+    "artist": "Julius Gari Melchers (American, 1860–1932)",
+    "date": "c. 1906",
+    "objectURL": "https://www.artic.edu/artworks/86780",
+    "note": "",
+    "gaze": {
+      "x": 0.07,
+      "y": -0.28
+    }
+  },
+  {
+    "id": 21907,
+    "src": "https://www.artic.edu/iiif/2/b703b636-976c-b35b-8a8e-f8df3f5ba003/full/843,/0/default.jpg",
+    "title": "Saint Francis Kneeling in Meditation",
+    "artist": "El Greco (Doménikos Theotokópoulos; Greek, active in Spain, 1541–1614)",
+    "date": "c. 1595–c. 1600",
+    "objectURL": "https://www.artic.edu/artworks/21907",
+    "note": "",
+    "gaze": {
+      "x": 0.37,
+      "y": 0.2
+    }
+  },
+  {
+    "id": 102088,
+    "src": "https://www.artic.edu/iiif/2/2f7bd26c-ffdf-0b4a-f1e2-8acd09554023/full/843,/0/default.jpg",
+    "title": "Assumption of the Virgin",
+    "artist": "Marcellus Coffermans (Netherlandish, 1524–1581)",
+    "date": "16th century",
+    "objectURL": "https://www.artic.edu/artworks/102088",
+    "note": "",
+    "gaze": {
+      "x": 0,
+      "y": -0.23
+    }
+  },
+  {
+    "id": 16600,
+    "src": "https://www.artic.edu/iiif/2/0e94a829-b3b7-8317-b609-d1826f0369f0/full/843,/0/default.jpg",
+    "title": "Lucie Berard (Child in White)",
+    "artist": "Pierre-Auguste Renoir (French, 1841–1919)",
+    "date": "1883",
+    "objectURL": "https://www.artic.edu/artworks/16600",
+    "note": "",
+    "gaze": {
+      "x": -0.08,
+      "y": -0.22
+    }
+  },
+  {
+    "id": 65847,
+    "src": "https://www.artic.edu/iiif/2/d5b9b3c8-66b4-d061-43ee-307cc42e1ae6/full/843,/0/default.jpg",
+    "title": "A Family Meal",
+    "artist": "Evert Pieters (Dutch, 1856–1932)",
+    "date": "1890s (?)",
+    "objectURL": "https://www.artic.edu/artworks/65847",
+    "note": "",
+    "gaze": {
+      "x": 0.02,
+      "y": 0.11
+    }
+  },
+  {
+    "id": 10550,
+    "src": "https://www.artic.edu/iiif/2/cb178a5a-6c55-c423-a186-d3d467a72f2f/full/843,/0/default.jpg",
+    "title": "The Dance",
+    "artist": "Pietro Longhi (Italian, 1702–1785)",
+    "date": "c. 1750",
+    "objectURL": "https://www.artic.edu/artworks/10550",
+    "note": "",
+    "gaze": {
+      "x": 0.37,
+      "y": 0.13
+    }
+  },
+  {
+    "id": 864,
+    "src": "https://www.artic.edu/iiif/2/f731615e-ee25-f8e5-b957-69635e1e2d60/full/843,/0/default.jpg",
+    "title": "Portrait of a Man with a Pink",
+    "artist": "Quentin Massys (Netherlandish, 1466-1530)",
+    "date": "1500–10",
+    "objectURL": "https://www.artic.edu/artworks/864",
+    "note": "",
+    "gaze": {
+      "x": -0.48,
+      "y": -0.11
+    }
+  },
+  {
+    "id": 16494,
+    "src": "https://www.artic.edu/iiif/2/a19aa3c2-56aa-cfd2-d92a-dabb5ba5b488/full/843,/0/default.jpg",
+    "title": "Virgin and Child with Saint Elizabeth and the Infant Saint John the Baptist",
+    "artist": "Jacques Blanchard (French, 1600–1638)",
+    "date": "c. 1628",
+    "objectURL": "https://www.artic.edu/artworks/16494",
+    "note": "",
+    "gaze": {
+      "x": 0.09,
+      "y": 0.05
+    }
+  },
+  {
+    "id": 866,
+    "src": "https://www.artic.edu/iiif/2/8f899167-2faf-bd0d-cf9c-9ca2fcb07a4b/full/843,/0/default.jpg",
+    "title": "Helena Tromper Du Bois",
+    "artist": "Attributed to Anthony van Dyck (Flemish, 1599–1641)",
+    "date": "c. 1631",
+    "objectURL": "https://www.artic.edu/artworks/866",
+    "note": "",
+    "gaze": {
+      "x": 0.15,
+      "y": -0.35
+    }
+  },
+  {
+    "id": 4788,
+    "src": "https://www.artic.edu/iiif/2/5a047a1c-d36e-e88d-05e7-845d3936159b/full/843,/0/default.jpg",
+    "title": "Lady Sarah Bunbury Sacrificing to the Graces",
+    "artist": "Sir Joshua Reynolds (English, 1723–1792)",
+    "date": "1763–65",
+    "objectURL": "https://www.artic.edu/artworks/4788",
+    "note": "",
+    "gaze": {
+      "x": -0.11,
+      "y": -0.32
+    }
+  },
+  {
+    "id": 86338,
+    "src": "https://www.artic.edu/iiif/2/9c0c5b2a-8683-d8ea-963e-bd0572300c04/full/843,/0/default.jpg",
+    "title": "Portrait of a Gentleman",
+    "artist": "Artist unknown (Chinese)",
+    "date": "Yuan dynasty (1260–1368) or Ming dynasty (1368–1644)",
+    "objectURL": "https://www.artic.edu/artworks/86338",
+    "note": "",
+    "gaze": {
+      "x": 0.43,
+      "y": -0.02
+    }
+  },
+  {
+    "id": 862,
+    "src": "https://www.artic.edu/iiif/2/c95d58bf-fe9e-e5bb-2c71-ab8bad984759/full/843,/0/default.jpg",
+    "title": "Portrait of an Artist",
+    "artist": "Follower of Frans Hals (Dutch, 1582–1666)",
+    "date": "1644",
+    "objectURL": "https://www.artic.edu/artworks/862",
+    "note": "",
+    "gaze": {
+      "x": -0.2,
+      "y": 0.02
+    }
+  },
+  {
+    "id": 16303,
+    "src": "https://www.artic.edu/iiif/2/7db6cf67-3cd0-40dc-112b-4494eca99d73/full/843,/0/default.jpg",
+    "title": "Virgin and Child",
+    "artist": "Workshop of Rogier van der Weyden (Netherlandish, c. 1399-1464)",
+    "date": "c. 1460",
+    "objectURL": "https://www.artic.edu/artworks/16303",
+    "note": "",
+    "gaze": {
+      "x": 0.07,
+      "y": -0.12
+    }
+  },
+  {
+    "id": 80538,
+    "src": "https://www.artic.edu/iiif/2/a599382c-d166-8f30-904b-64b19514265e/full/843,/0/default.jpg",
+    "title": "A Lady Reading (Saint Mary Magdalene)",
+    "artist": "Master of the Female Half-Lengths (Netherlandish, active about 1520–1540)",
+    "date": "c. 1530",
+    "objectURL": "https://www.artic.edu/artworks/80538",
+    "note": "",
+    "gaze": {
+      "x": -0.04,
+      "y": -0.12
+    }
+  },
+  {
+    "id": 64920,
+    "src": "https://www.artic.edu/iiif/2/84bc6762-6a64-dde5-5dc3-ec31c75aa32b/full/843,/0/default.jpg",
+    "title": "Tarquin and Lucretia",
+    "artist": "Tintoretto (Jacopo Robusti; Italian, 1518-1594)",
+    "date": "1578–80",
+    "objectURL": "https://www.artic.edu/artworks/64920",
+    "note": "",
+    "gaze": {
+      "x": 0.11,
+      "y": -0.48
+    }
+  }
 ]
