@@ -1,0 +1,61 @@
+[
+  { "id": 437397, "src": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/437397/1843832/main-image",
+    "title": "Self-Portrait", "artist": "Rembrandt (Rembrandt van Rijn)", "date": "1660",
+    "objectURL": "https://www.metmuseum.org/art/collection/search/437397",
+    "note": "Rembrandt looks the viewer dead in the eye.", "gaze": { "x": -0.03, "y": -0.25 } },
+
+  { "id": 437903, "src": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/437903/1580188/main-image",
+    "title": "Marie Joséphine Charlotte du Val d’Ognes", "artist": "Marie Denise Villers", "date": "1801",
+    "objectURL": "https://www.metmuseum.org/art/collection/search/437903",
+    "note": "“she’s looking right at the audience.” — Met curator", "gaze": { "x": 0.16, "y": -0.47 } },
+
+  { "id": 437869, "src": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/437869/1763004/main-image",
+    "title": "Juan de Pareja", "artist": "Velázquez", "date": "ca. 1650",
+    "objectURL": "https://www.metmuseum.org/art/collection/search/437869",
+    "note": "painted in Rome while Pareja was enslaved in Velázquez’s household.", "gaze": { "x": -0.31, "y": -0.34 } },
+
+  { "id": 435664, "src": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/435664/795061/main-image",
+    "title": "Portrait of a Young Man", "artist": "Biagio d’Antonio", "date": "ca. 1470",
+    "objectURL": "https://www.metmuseum.org/art/collection/search/435664",
+    "note": "a fifteen-year-old stares confidently at the spectator.", "gaze": { "x": 0.3, "y": -0.4 } },
+
+  { "id": 437875, "src": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/437875/803230/main-image",
+    "title": "Portrait of a Man", "artist": "possibly Velázquez", "date": "ca. 1650",
+    "objectURL": "https://www.metmuseum.org/art/collection/search/437875",
+    "note": "looks to his right while facing the viewer.", "gaze": { "x": 0.82, "y": -0.31 } },
+
+  { "id": 435623, "src": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/435623/796413/main-image",
+    "title": "Portrait of a Young Man", "artist": "Pompeo Batoni", "date": "ca. 1760–65",
+    "objectURL": "https://www.metmuseum.org/art/collection/search/435623",
+    "note": "a Grand Tourist’s aloof, upward gaze.", "gaze": { "x": 0.59, "y": -0.28 } },
+
+  { "id": 437851, "src": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/437851/801526/main-image",
+    "title": "Portrait of a Young Man", "artist": "Cosmè Tura", "date": "1470s",
+    "objectURL": "https://www.metmuseum.org/art/collection/search/437851",
+    "note": "profile portraiture ruled Italy into the 1400s.", "gaze": { "x": -0.43, "y": -0.29 } },
+
+  { "id": 438818, "src": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/438818/795916/main-image",
+    "title": "Joseph-Antoine Moltedo", "artist": "Jean Auguste Dominique Ingres", "date": "ca. 1810",
+    "objectURL": "https://www.metmuseum.org/art/collection/search/438818",
+    "note": "painted in Napoleonic Rome.", "gaze": { "x": -0.02, "y": -0.38 } },
+
+  { "id": 435802, "src": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/435802/1763012/main-image",
+    "title": "Portrait of a Young Man", "artist": "Bronzino", "date": "1530s",
+    "objectURL": "https://www.metmuseum.org/art/collection/search/435802",
+    "note": "a Florentine poet, holding a book of verse.", "gaze": { "x": 0.33, "y": -0.63 } },
+
+  { "id": 437391, "src": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/437391/1869655/main-image",
+    "title": "Portrait of a Young Woman with a Fan", "artist": "Rembrandt (Rembrandt van Rijn)", "date": "1633",
+    "objectURL": "https://www.metmuseum.org/art/collection/search/437391",
+    "note": "pendant to a portrait of her husband.", "gaze": { "x": 0, "y": -0.54 } },
+
+  { "id": 437394, "src": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/437394/2211141/main-image",
+    "title": "Aristotle with a Bust of Homer", "artist": "Rembrandt (Rembrandt van Rijn)", "date": "1653",
+    "objectURL": "https://www.metmuseum.org/art/collection/search/437394",
+    "note": "Aristotle looks down, weighing his own legacy.", "gaze": { "x": -0.54, "y": -0.04 } },
+
+  { "id": 435882, "src": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/435882/796423/main-image",
+    "title": "Still Life with Apples and a Pot of Primroses", "artist": "Paul Cézanne", "date": "ca. 1890",
+    "objectURL": "https://www.metmuseum.org/art/collection/search/435882",
+    "note": "Cézanne’s apples don’t look back.", "noGaze": true }
+]

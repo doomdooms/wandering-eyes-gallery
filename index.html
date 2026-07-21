@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Wandering Eye Gallery</title>
+<style>
+  :root {
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    height: 100%;
+    margin: 0;
+    background: #0b0b0c;
+    color: #e8e6e1;
+    font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+    overflow: hidden;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    cursor: default;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  #stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+    max-width: min(88vw, 900px);
+  }
+
+  #frame {
+    position: relative;
+    background: #050505;
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,0.06),
+      0 30px 80px rgba(0,0,0,0.6);
+    max-width: 78vw;
+    max-height: 66vh;
+    transition: width 550ms cubic-bezier(.22,.61,.36,1), height 550ms cubic-bezier(.22,.61,.36,1);
+    overflow: hidden;
+  }
+
+  #frame img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 550ms ease;
+    pointer-events: none;
+  }
+  #frame img.visible {
+    opacity: 1;
+  }
+
+  #caption {
+    text-align: center;
+    max-width: 560px;
+    opacity: 1;
+    transition: opacity 260ms ease;
+  }
+  #caption.fading {
+    opacity: 0;
+  }
+
+  #caption h1 {
+    font-size: 1.25rem;
+    font-weight: normal;
+    margin: 0 0 2px;
+    letter-spacing: 0.01em;
+  }
+
+  #caption .byline {
+    font-size: 0.85rem;
+    color: #9a968d;
+    margin: 0 0 10px;
+    font-style: italic;
+  }
+
+  #caption .byline a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(154,150,141,0.4);
+  }
+  #caption .byline a:hover {
+    border-bottom-color: #9a968d;
+  }
+
+  #caption .note {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #cfccc4;
+    margin: 0;
+  }
+
+  #hint {
+    position: fixed;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #57544d;
+    transition: opacity 800ms ease;
+  }
+  #hint.hidden { opacity: 0; }
+
+  #loading {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #57544d;
+    transition: opacity 400ms ease;
+  }
+  #loading.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+
+  <div id="loading">Loading gallery&hellip;</div>
+
+  <div id="stage" style="visibility:hidden;">
+    <div id="frame">
+      <img id="imgA" alt="">
+      <img id="imgB" alt="">
+    </div>
+    <div id="caption">
+      <h1 id="capTitle"></h1>
+      <p class="byline" id="capByline"></p>
+      <p class="note" id="capNote"></p>
+    </div>
+  </div>
+
+  <div id="hint">move your cursor &mdash; the gallery is watching</div>
+
+  <script>
+  (function () {
+    "use strict";
+
+    // ---- Tunables --------------------------------------------------------
+    const SMOOTHING = 0.12;        // low-pass factor applied to raw cursor each frame
+    const HYSTERESIS = 0.12;       // distance bonus (in normalized units) given to the current work
+    const DEAD_ZONE = 0.08;        // radius from center within which a noGaze work is preferred
+    const SWITCH_COOLDOWN = 400;   // minimum ms between switches, even if a closer match appears
+
+    // ---- Embedded fallback -------------------------------------------------
+    // Used when data/works.json can't be fetched (e.g. opened directly via
+    // file:// in a browser that blocks same-folder fetch on that scheme).
+    const FALLBACK_WORKS = [
+      {
+        "id": 437397,
+        "src": "https://collectionapi.metmuseum.org/api/collection/v1/iiif/437397/1843832/main-image",
+        "title": "Self-Portrait",
+        "artist": "Rembrandt (Rembrandt van Rijn)",
+        "date": "1660",
+        "objectURL": "https://www.metmuseum.org/art/collection/search/437397",
+        "note": "Rembrandt looks the viewer dead in the eye.",
+        "gaze": { "x": -0.03, "y": -0.25 }
+      }
+    ];
+
+    // ---- State --------------------------------------------------------
+    let works = [];               // loaded catalog, each entry augmented with .img, .w, .h
+    let current = null;           // currently displayed work
+    let lastSwitch = 0;
+
+    let rawX = 0, rawY = 0;       // latest pointer position, normalized -1..1
+    let smoothX = 0, smoothY = 0; // low-pass filtered position
+
+    const stageEl = document.getElementById("stage");
+    const loadingEl = document.getElementById("loading");
+    const frameEl = document.getElementById("frame");
+    const imgA = document.getElementById("imgA");
+    const imgB = document.getElementById("imgB");
+    const hintEl = document.getElementById("hint");
+    const captionEl = document.getElementById("caption");
+    const capTitle = document.getElementById("capTitle");
+    const capByline = document.getElementById("capByline");
+    const capNote = document.getElementById("capNote");
+
+    let layers = [imgA, imgB];
+    let activeLayerIndex = 0; // which of layers[] is currently the visible one
+
+    // ---- Loading --------------------------------------------------------
+    async function loadCatalog() {
+      try {
+        const res = await fetch("data/works.json", { cache: "no-store" });
+        if (!res.ok) throw new Error("bad response " + res.status);
+        const data = await res.json();
+        if (!Array.isArray(data) || data.length === 0) throw new Error("empty catalog");
+        return data;
+      } catch (err) {
+        console.warn("Falling back to embedded catalog:", err);
+        return FALLBACK_WORKS;
+      }
+    }
+
+    function preload(work) {
+      return new Promise((resolve) => {
+        const img = new Image();
+        img.crossOrigin = "anonymous";
+        img.onload = () => {
+          work.img = img;
+          work.w = img.naturalWidth;
+          work.h = img.naturalHeight;
+          resolve(work);
+        };
+        img.onerror = () => {
+          console.warn("Failed to load image for work", work.id, work.src);
+          resolve(null); // dropped from the catalog
+        };
+        img.src = work.src;
+      });
+    }
+
+    async function init() {
+      const catalog = await loadCatalog();
+      const loaded = await Promise.all(catalog.map(preload));
+      works = loaded.filter(Boolean);
+
+      if (works.length === 0) {
+        loadingEl.textContent = "No works could be loaded.";
+        return;
+      }
+
+      loadingEl.classList.add("hidden");
+      stageEl.style.visibility = "visible";
+
+      // Start on whichever work is closest to dead center, so the opening
+      // frame isn't arbitrary.
+      current = pickInitial();
+      showWork(current, /*instant=*/ true);
+
+      requestAnimationFrame(tick);
+
+      window.addEventListener("mousemove", onPointerMove, { passive: true });
+      window.addEventListener("touchmove", onTouchMove, { passive: false });
+      window.addEventListener("touchstart", onTouchMove, { passive: false });
+    }
+
+    function pickInitial() {
+      const noGaze = works.find((w) => w.noGaze);
+      return noGaze || works[0];
+    }
+
+    // ---- Pointer handling --------------------------------------------------
+    function setRawFromClient(clientX, clientY) {
+      const cx = window.innerWidth / 2;
+      const cy = window.innerHeight / 2;
+      rawX = clamp((clientX - cx) / cx, -1, 1);
+      rawY = clamp((clientY - cy) / cy, -1, 1);
+      hintEl.classList.add("hidden");
+    }
+
+    function onPointerMove(e) {
+      setRawFromClient(e.clientX, e.clientY);
+    }
+
+    function onTouchMove(e) {
+      if (e.touches && e.touches.length > 0) {
+        e.preventDefault();
+        setRawFromClient(e.touches[0].clientX, e.touches[0].clientY);
+      }
+    }
+
+    function clamp(v, lo, hi) {
+      return Math.max(lo, Math.min(hi, v));
+    }
+
+    // ---- Matching loop --------------------------------------------------
+    function tick() {
+      smoothX += (rawX - smoothX) * SMOOTHING;
+      smoothY += (rawY - smoothY) * SMOOTHING;
+
+      const best = pickBestMatch(smoothX, smoothY);
+      if (best && best !== current) {
+        const now = performance.now();
+        if (now - lastSwitch >= SWITCH_COOLDOWN) {
+          current = best;
+          lastSwitch = now;
+          showWork(current, false);
+        }
+      }
+
+      requestAnimationFrame(tick);
+    }
+
+    function pickBestMatch(x, y) {
+      const distFromCenter = Math.hypot(x, y);
+
+      if (distFromCenter <= DEAD_ZONE) {
+        const noGaze = works.find((w) => w.noGaze);
+        if (noGaze) return noGaze;
+      }
+
+      let best = null;
+      let bestDist = Infinity;
+
+      for (const w of works) {
+        if (w.noGaze) continue; // only reachable via the dead zone
+        let d = Math.hypot(w.gaze.x - x, w.gaze.y - y);
+        if (w === current) d = Math.max(0, d - HYSTERESIS);
+        if (d < bestDist) {
+          bestDist = d;
+          best = w;
+        }
+      }
+
+      return best;
+    }
+
+    // ---- Rendering --------------------------------------------------
+    function showWork(work, instant) {
+      const nextLayer = layers[1 - activeLayerIndex];
+      const prevLayer = layers[activeLayerIndex];
+
+      nextLayer.src = work.src;
+      nextLayer.alt = work.title || "";
+
+      const aspect = work.w && work.h ? work.w / work.h : 1;
+      applyFrameSize(aspect, instant);
+
+      const swap = () => {
+        nextLayer.classList.add("visible");
+        prevLayer.classList.remove("visible");
+        activeLayerIndex = 1 - activeLayerIndex;
+        updateCaption(work);
+      };
+
+      if (instant) {
+        frameEl.style.transitionDuration = "0ms";
+        swap();
+        requestAnimationFrame(() => {
+          frameEl.style.transitionDuration = "";
+        });
+      } else {
+        swap();
+      }
+    }
+
+    function applyFrameSize(aspect, instant) {
+      // Fit within the CSS-imposed max box while honoring the image's own
+      // aspect ratio, computed against the viewport so portrait and
+      // landscape works both read as "as large as reasonably fits."
+      const maxW = window.innerWidth * 0.78;
+      const maxH = window.innerHeight * 0.66;
+
+      let w = maxW;
+      let h = w / aspect;
+      if (h > maxH) {
+        h = maxH;
+        w = h * aspect;
+      }
+
+      frameEl.style.width = Math.round(w) + "px";
+      frameEl.style.height = Math.round(h) + "px";
+    }
+
+    function updateCaption(work) {
+      captionEl.classList.add("fading");
+      setTimeout(() => {
+        capTitle.textContent = work.title || "Untitled";
+        const byline = [work.artist, work.date].filter(Boolean).join(", ");
+        capByline.innerHTML = work.objectURL
+          ? `<a href="${work.objectURL}" target="_blank" rel="noopener">${byline}</a>`
+          : byline;
+        capNote.textContent = work.note || "";
+        captionEl.classList.remove("fading");
+      }, 180);
+    }
+
+    // ---- Go --------------------------------------------------
+    window.addEventListener("resize", () => {
+      if (current) applyFrameSize(current.w / current.h, true);
+    });
+
+    init();
+  })();
+  </script>
+</body>
+</html>
