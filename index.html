@@ -122,17 +122,19 @@
   }
   #cursorGlow .glowCore {
     position: absolute;
-    width: 140px;
-    height: 140px;
-    margin-left: -70px;
-    margin-top: -70px;
+    width: 84px;
+    height: 84px;
+    margin-left: -42px;
+    margin-top: -42px;
     border-radius: 50%;
     background: radial-gradient(
       circle,
-      rgba(255, 244, 214, 0.85) 0%,
-      rgba(255, 214, 130, 0.35) 32%,
-      rgba(255, 214, 130, 0.08) 60%,
-      transparent 72%
+      transparent 0%,
+      transparent 32%,
+      rgba(255, 244, 214, 0.9) 42%,
+      rgba(255, 214, 130, 0.55) 52%,
+      rgba(255, 214, 130, 0.16) 66%,
+      transparent 80%
     );
     mix-blend-mode: screen;
     animation: cursorPulse 2.6s ease-in-out infinite;
@@ -201,8 +203,9 @@
     // ---- Tunables --------------------------------------------------------
     const SMOOTHING = 0.12;        // low-pass factor applied to raw cursor each frame
     const CLUSTER_EPSILON = 0.06;  // works within this of the nearest distance are treated as a tie
+    const STICKY_BONUS = 0.08;     // extra margin (on top of CLUSTER_EPSILON) before the current work loses its spot
     const DEAD_ZONE = 0.08;        // radius from center within which a noGaze work is preferred
-    const SWITCH_COOLDOWN = 500;   // minimum ms between switches, even if a closer match appears
+    const SWITCH_COOLDOWN = 900;   // minimum ms between switches, even if a closer match appears
 
     // ---- Embedded fallback -------------------------------------------------
     // Used when data/works.json can't be fetched (e.g. opened directly via
@@ -401,20 +404,25 @@
         if (d < bestDist) bestDist = d;
       }
 
-      // Several works can plausibly claim the same cursor position (a
-      // gaze-space cluster). Treat everything within CLUSTER_EPSILON of the
-      // best distance as a tie. If the currently-displayed work is still in
-      // that tie set, keep it — this is what stops a cluster from
-      // re-rolling every animation frame. Only when the cursor genuinely
-      // leaves the whole cluster do we roll for a new pick.
+      // The current work gets extra rope (CLUSTER_EPSILON + STICKY_BONUS)
+      // before it's displaced. In a dense cluster, bestDist itself shifts
+      // with every small cursor move, so without this a work could fall
+      // out of the tie set from cursor jitter alone; the wider margin here
+      // is what keeps a pick from re-rolling on every little wobble.
+      if (current && !current.noGaze) {
+        const dCurrent = Math.hypot(current.gaze.x - x, current.gaze.y - y);
+        if (dCurrent <= bestDist + CLUSTER_EPSILON + STICKY_BONUS) return current;
+      }
+
+      // Otherwise, several works can plausibly claim this cursor position
+      // (a gaze-space cluster) - treat everything within CLUSTER_EPSILON of
+      // the best distance as a tie and roll for a new pick among them.
       const tied = [];
       for (const w of works) {
         if (w.noGaze) continue;
         const d = Math.hypot(w.gaze.x - x, w.gaze.y - y);
         if (d <= bestDist + CLUSTER_EPSILON) tied.push(w);
       }
-
-      if (current && tied.includes(current)) return current;
       return tied[Math.floor(Math.random() * tied.length)];
     }
 
