@@ -215,8 +215,8 @@
       }
     }
 
-    function preload(work) {
-      return new Promise((resolve) => {
+    function preloadOnce(work) {
+      return new Promise((resolve, reject) => {
         const img = new Image();
         img.onload = () => {
           work.img = img;
@@ -224,17 +224,50 @@
           work.h = img.naturalHeight;
           resolve(work);
         };
-        img.onerror = () => {
-          console.warn("Failed to load image for work", work.id, work.src);
-          resolve(null); // dropped from the catalog
-        };
+        img.onerror = () => reject(new Error("image load failed"));
         img.src = work.src;
       });
     }
 
+    // Museum image servers can rate-limit a sudden burst of concurrent
+    // requests, so a failed load gets a couple of retries with backoff
+    // before the work is dropped from the catalog.
+    async function preload(work, retries = 2) {
+      for (let attempt = 0; ; attempt++) {
+        try {
+          return await preloadOnce(work);
+        } catch (err) {
+          if (attempt >= retries) {
+            console.warn("Failed to load image for work", work.id, work.src);
+            return null;
+          }
+          await new Promise((r) => setTimeout(r, 400 * (attempt + 1)));
+        }
+      }
+    }
+
+    // Loading dozens of works at once as one giant Promise.all is itself
+    // what triggers that rate limiting, so preload with bounded concurrency
+    // instead of all-at-once.
+    const PRELOAD_CONCURRENCY = 6;
+    async function mapWithConcurrency(items, limit, fn) {
+      const results = new Array(items.length);
+      let next = 0;
+      async function worker() {
+        while (next < items.length) {
+          const i = next++;
+          results[i] = await fn(items[i]);
+        }
+      }
+      await Promise.all(
+        Array.from({ length: Math.min(limit, items.length) }, worker)
+      );
+      return results;
+    }
+
     async function init() {
       const catalog = await loadCatalog();
-      const loaded = await Promise.all(catalog.map(preload));
+      const loaded = await mapWithConcurrency(catalog, PRELOAD_CONCURRENCY, preload);
       works = loaded.filter(Boolean);
 
       if (works.length === 0) {
