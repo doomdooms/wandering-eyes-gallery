@@ -102,6 +102,46 @@
     margin: 0;
   }
 
+  /* Position (translate3d, set from JS) and the pulse (scale, via
+     keyframes) both animate `transform` - on the same element the
+     animation would simply win and freeze the position, so they're split
+     across a positioning wrapper and an inner pulsing core. */
+  #cursorGlow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    z-index: 50;
+    opacity: 0;
+    transition: opacity 400ms ease;
+  }
+  #cursorGlow.visible {
+    opacity: 1;
+  }
+  #cursorGlow .glowCore {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    margin-left: -70px;
+    margin-top: -70px;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle,
+      rgba(255, 244, 214, 0.85) 0%,
+      rgba(255, 214, 130, 0.35) 32%,
+      rgba(255, 214, 130, 0.08) 60%,
+      transparent 72%
+    );
+    mix-blend-mode: screen;
+    animation: cursorPulse 2.6s ease-in-out infinite;
+  }
+  @keyframes cursorPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.12); }
+  }
+
   #hint {
     position: fixed;
     bottom: 18px;
@@ -152,6 +192,7 @@
   </div>
 
   <div id="hint">move your cursor &mdash; the gallery is watching</div>
+  <div id="cursorGlow" aria-hidden="true"><div class="glowCore"></div></div>
 
   <script>
   (function () {
@@ -161,7 +202,7 @@
     const SMOOTHING = 0.12;        // low-pass factor applied to raw cursor each frame
     const CLUSTER_EPSILON = 0.06;  // works within this of the nearest distance are treated as a tie
     const DEAD_ZONE = 0.08;        // radius from center within which a noGaze work is preferred
-    const SWITCH_COOLDOWN = 400;   // minimum ms between switches, even if a closer match appears
+    const SWITCH_COOLDOWN = 500;   // minimum ms between switches, even if a closer match appears
 
     // ---- Embedded fallback -------------------------------------------------
     // Used when data/works.json can't be fetched (e.g. opened directly via
@@ -197,6 +238,7 @@
     const capTitle = document.getElementById("capTitle");
     const capByline = document.getElementById("capByline");
     const capNote = document.getElementById("capNote");
+    const cursorGlowEl = document.getElementById("cursorGlow");
 
     let layers = [imgA, imgB];
     let activeLayerIndex = 0; // which of layers[] is currently the visible one
@@ -303,6 +345,12 @@
       rawX = clamp((clientX - cx) / cx, -1, 1);
       rawY = clamp((clientY - cy) / cy, -1, 1);
       hintEl.classList.add("hidden");
+
+      // Tracks the literal cursor position with no smoothing lag - it's the
+      // thing the gallery is reacting to, so it should feel immediate even
+      // though the painting match itself is smoothed.
+      cursorGlowEl.style.transform = `translate3d(${clientX}px, ${clientY}px, 0)`;
+      cursorGlowEl.classList.add("visible");
     }
 
     function onPointerMove(e) {
