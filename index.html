@@ -141,8 +141,8 @@
 
   <div id="stage" style="visibility:hidden;">
     <div id="frame">
-      <img id="imgA" alt="">
-      <img id="imgB" alt="">
+      <img id="imgA" alt="" referrerpolicy="no-referrer">
+      <img id="imgB" alt="" referrerpolicy="no-referrer">
     </div>
     <div id="caption">
       <h1 id="capTitle"></h1>
@@ -218,6 +218,7 @@
     function preloadOnce(work) {
       return new Promise((resolve, reject) => {
         const img = new Image();
+        img.referrerPolicy = "no-referrer"; // some museum CDNs (e.g. artic.edu) 403 on a foreign-origin Referer
         img.onload = () => {
           work.img = img;
           work.w = img.naturalWidth;
